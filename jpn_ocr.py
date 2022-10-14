@@ -35,7 +35,7 @@ class FxVerify:
       Debug.user("%s: fail (%s != %s)" % (caption, expected, actual.decode('utf-8')))
 
   def scan_text_from_area(self, area, strip=True, remove=True):
-    img=getScreen().capture(area)
+    img = getScreen().capture(area)
     Debug.user("scan area: %s" % (area.toString())
     content = find(img.filename).text()
     if strip:
