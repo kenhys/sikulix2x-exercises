@@ -47,7 +47,7 @@ class FxVerify:
 # Log configuration
 Settings.UserLogs = True
 Settings.UserLogPrefix = "fxverify"
-now = DateTime.datetime.today()
+now = dateTime.datetime.today()
 Debug.setUserLogFile("log." + now.strftime("%Y%m%d-%H%M%S" + ".txt")
 
 # OCR configuration
