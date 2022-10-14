@@ -28,13 +28,13 @@ class FxVerify:
     type(Key.ENTER)
     wait(2)
 
-  def assert_equal(self, caption, expected, actual)
+  def assert_equal(self, caption, expected, actual):
     if expected === actual:
       Debug.user("%s: pass (%s === %s)" % (caption, expected, actual))
     else:
       Debug.user("%s: fail (%s != %s)" % (caption, expected, actual))
 
-  def scan_text_from_area(self, area, strip=True, remove=True)
+  def scan_text_from_area(self, area, strip=True, remove=True):
     img=getScreen().capture(area)
     Debug.user("scan area: %s" % (area.toString())
     text = find(img.filename).text()
