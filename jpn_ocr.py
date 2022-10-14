@@ -73,7 +73,7 @@ area=Region(296,106,307,28)
 #area = selectRegion()
 
 actual = fxverify.scan_text_from_area(area)
-fxverify.assert_equal("managed with policy", "ご使用のブラウザーはあなたの所属組織に管理されています。", actual)
+fxverify.assert_equal("managed with policy", u"ご使用のブラウザーはあなたの所属組織に管理されています。", actual)
 
 type("q", Key.CTRL + Key.SHIFT)
 
