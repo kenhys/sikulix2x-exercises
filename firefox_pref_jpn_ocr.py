@@ -61,8 +61,9 @@ fxverify.launch_firefox()
 
 fxverify.access_about_config()
 fxverify.search_about_pref("browser.migration.version")
-reg=Region(33,148,792,34)
-print reg.text()
+# Specify region for 1920x1080 scaling 125% display
+reg=Region(12,148,1423,35)
+Debug.user("browser:migration.version:" % reg.text())
 
 type("l", Key.CTRL)
 
