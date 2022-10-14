@@ -37,12 +37,12 @@ class FxVerify:
   def scan_text_from_area(self, area, strip=True, remove=True):
     img=getScreen().capture(area)
     Debug.user("scan area: %s" % (area.toString())
-    text = find(img.filename).text()
+    content = find(img.filename).text()
     if strip:
-      text = text.strip()
+      content = content.strip()
     if remove:
-      text.replace(" ", "")
-    return text
+      content = content.replace(" ", "")
+    return content
 
 # Log configuration
 Settings.UserLogs = True
