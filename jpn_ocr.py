@@ -77,5 +77,5 @@ fxverify.assert_equal("managed with policy", u"ご使用のブラウザーはあ
 
 type("q", Key.CTRL + Key.SHIFT)
 
-Debug.user("End auto vefification with SikuliX"))
+Debug.user("End auto vefification with SikuliX")
 
