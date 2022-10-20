@@ -8,9 +8,8 @@ class FxVerify:
   def show_message(self, msg, timeout=1):
       Do.popup(msg, timeout)
 
-  def launch_firefox(self):
-    self.show_message(u"Firefoxを起動します\nこのダイアログは自動的に閉じます。")
-    App.open("C:/work/firefox/esr102/run.bat")
+  def startup_notification(self):
+    self.show_message(u"Firefoxを起動し、about:configを表示できるようにしておいてください。\nこのダイアログは自動的に閉じます。", 3)
     wait(2)
    
   def access_about(self, about):
@@ -58,7 +57,7 @@ Debug.user(OCR.status())
 Debug.user("Start auto verification with SikuliX")
 
 fxverify = FxVerify()
-fxverify.launch_firefox()
+fxverify.startup_notification()
 
 fxverify.access_about_config()
 
