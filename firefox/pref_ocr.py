@@ -73,7 +73,6 @@ with open('about_config.csv') as f:
   #reader = csv.reader(f, delimiter='\t')
   reader = csv.reader(f)
   for row in reader:
-    Debug.user("browser.migration.version: [%s]" % area.text())
     print(row)
     expected = "%s %s" % (row[0], row[1].strip())
     type("a", Key.CTRL)
