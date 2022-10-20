@@ -47,6 +47,8 @@ class FxVerify:
 # Log configuration
 Settings.UserLogs = True
 Settings.UserLogPrefix = "fxverify"
+# Put *.traineddata under tessdata
+Settings.OcrDataPath = "c:/Users/Public/testcases/tessdata"
 now = datetime.datetime.today()
 Debug.setUserLogFile("log." + now.strftime("%Y%m%d.%H%M%S") + ".txt")
 
