@@ -51,7 +51,7 @@ now = datetime.datetime.today()
 Debug.setUserLogFile("log." + now.strftime("%Y%m%d.%H%M%S") + ".txt")
 
 # OCR configuration
-OCR.globalOptions().language("jpn")
+OCR.globalOptions().language("eng")
 Debug.user(OCR.status())
 
 Debug.user("Start auto verification with SikuliX")
@@ -70,6 +70,7 @@ type("l", Key.CTRL)
 fxverify.access_about("about:preferences")
 
 Debug.user(u"Scan Japanese OCR text")
+OCR.globalOptions().language("eng")
 area=Region(296,106,307,28)
 #area = selectRegion()
 
