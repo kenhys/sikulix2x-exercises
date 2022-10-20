@@ -1,5 +1,6 @@
 import sys
 import datetime
+import csv
 reload(sys)
 sys.setdefaultencoding("UTF-8")
 
@@ -60,22 +61,27 @@ fxverify = FxVerify()
 fxverify.launch_firefox()
 
 fxverify.access_about_config()
+
+# Select region for matched pref
 fxverify.search_about_pref("browser.migration.version")
 # Specify region for 1920x1080 scaling 125% display
-reg=Region(12,148,1423,35)
-Debug.user("browser.migration.version: [%s]" % reg.text())
+# reg=Region(12,148,1423,35)
+# Select
+area = selectRegion()
+area.highlight(3, "red")
 
-type("l", Key.CTRL)
-
-fxverify.access_about("about:preferences")
-
-Debug.user(u"Scan Japanese OCR text")
-OCR.globalOptions().language("eng")
-area=Region(296,106,307,28)
-#area = selectRegion()
-
-actual = fxverify.scan_text_from_area(area)
-fxverify.assert_equal("managed with policy", u"ご使用のブラウザーはあなたの所属組織に管理されています。", actual)
+with open('about_config.csv') as f:
+  #reader = csv.reader(f, delimiter='\t')
+  reader = csv.reader(f)
+  for row in reader:
+    Debug.user("browser.migration.version: [%s]" % area.text())
+    print(row)
+    expected = "%s %s" % (row[0], row[1].strip())
+    type("a", Key.CTRL)
+    paste(row[0].strip())
+    type(Key.ENTER)
+    actual = fxverify.scan_text_from_area(area, False, False)
+    fxverify.assert_equal(row[0], expected, actual)
 
 type("q", Key.CTRL + Key.SHIFT)
 
