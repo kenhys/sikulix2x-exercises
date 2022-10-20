@@ -83,7 +83,5 @@ with open('about_config.csv') as f:
     actual = fxverify.scan_text_from_area(area, False, False)
     fxverify.assert_equal(row[0], expected, actual)
 
-type("q", Key.CTRL + Key.SHIFT)
-
 Debug.user("End auto vefification with SikuliX")
 
